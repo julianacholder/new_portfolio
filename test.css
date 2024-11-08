@@ -1,0 +1,215 @@
+body {
+  height: 100%;
+  font-family: karla, sans-serif;
+  position: relative;
+}
+
+.wrapper {
+  width: 90%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+@media (min-width: 1080px) {
+  .wrapper {
+    width: 80%;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: #ff7171;
+}
+a:hover {
+  color: #ff4747;
+}
+
+nav {
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+  position: fixed;
+}
+nav .menu {
+  display: none;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  background: rgb(255, 134, 140);
+  position: absolute;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+nav .menu.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+nav .menu li {
+  list-style: none;
+  margin-bottom: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+nav .menu li a {
+  color: #fff;
+  margin: auto;
+  width: auto;
+  background: none;
+  font-size: 2.9rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  -webkit-transition: background 0.2s ease-in-out;
+  transition: background 0.2s ease-in-out;
+}
+nav .menu li a:hover, nav .menu li a:focus, nav .menu li a:active {
+  color: rgb(202, 50, 62);
+}
+
+.menu-toggle {
+  top: 24px;
+  z-index: 2;
+  right: 30px;
+  width: 22px;
+  height: 20px;
+  padding: 8px 0;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+}
+.menu-toggle span {
+  height: 4px;
+  display: block;
+  overflow: hidden;
+  text-indent: 100%;
+  background: #e96269;
+  border-radius: 2px;
+  white-space: nowrap;
+  -webkit-transition: background 0.3s ease-in-out;
+  transition: background 0.3s ease-in-out;
+}
+.menu-toggle::before, .menu-toggle::after {
+  left: 0;
+  content: "";
+  width: 22px;
+  height: 4px;
+  background: #e96269;
+  border-radius: 2px;
+  position: absolute;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-transition: width 0.2s ease-in-out, background 0.2s ease-in-out, top 0.2s ease-in-out, bottom 0.2s ease-in-out, left 0.2s ease-in-out, right 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out, background 0.2s ease-in-out, top 0.2s ease-in-out, bottom 0.2s ease-in-out, left 0.2s ease-in-out, right 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out, background 0.2s ease-in-out, transform 0.2s ease-in-out, top 0.2s ease-in-out, bottom 0.2s ease-in-out, left 0.2s ease-in-out, right 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out, background 0.2s ease-in-out, transform 0.2s ease-in-out, top 0.2s ease-in-out, bottom 0.2s ease-in-out, left 0.2s ease-in-out, right 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+}
+.menu-toggle::before {
+  top: 0;
+}
+.menu-toggle::after {
+  bottom: 0;
+}
+.menu-toggle.menu-open span {
+  background: rgba(255, 255, 255, 0);
+}
+.menu-toggle.menu-open::before {
+  top: 8px;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.menu-toggle.menu-open::after {
+  bottom: 8px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.menu-toggle.menu-open::before, .menu-toggle.menu-open::after {
+  width: 26px;
+  background: #fff;
+}
+.menu-toggle.menu-open:hover span, .menu-toggle.menu-open:focus span, .menu-toggle.menu-open:active span {
+  background: rgba(255, 255, 255, 0);
+}
+.menu-toggle.menu-open:hover::before, .menu-toggle.menu-open:focus::before, .menu-toggle.menu-open:active::before {
+  top: 8px;
+  left: -3px;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.menu-toggle.menu-open:hover::after, .menu-toggle.menu-open:focus::after, .menu-toggle.menu-open:active::after {
+  left: 9px;
+  bottom: 8px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.menu-toggle.menu-open:hover::before, .menu-toggle.menu-open:hover::after, .menu-toggle.menu-open:focus::before, .menu-toggle.menu-open:focus::after, .menu-toggle.menu-open:active::before, .menu-toggle.menu-open:active::after {
+  width: 18px;
+}
+.menu-toggle:hover span, .menu-toggle:focus span, .menu-toggle:active span {
+  background: rgba(255, 255, 255, 0);
+}
+.menu-toggle:hover::before, .menu-toggle:focus::before, .menu-toggle:active::before {
+  top: 8px;
+  left: -3px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.menu-toggle:hover::after, .menu-toggle:focus::after, .menu-toggle:active::after {
+  left: 9px;
+  bottom: 8px;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.menu-toggle:hover::before, .menu-toggle:hover::after, .menu-toggle:focus::before, .menu-toggle:focus::after, .menu-toggle:active::before, .menu-toggle:active::after {
+  width: 18px;
+}
+
+header {
+  height: 100vh !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+@media (min-width: 780px) {
+  header {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    height: 85vh;
+  }
+}
+
